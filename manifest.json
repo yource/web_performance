@@ -1,0 +1,44 @@
+{
+    "author": "yource",
+    "browser_action":
+    {
+        "default_icon":
+        {
+            "128": "images/icon128.png",
+            "16": "images/icon16.png",
+            "19": "images/icon19.png",
+            "38": "images/icon38.png",
+            "48": "images/icon48.png",
+            "58": "images/icon58.png"
+        },
+        "default_title": "Use this after page loaded",
+        "default_popup": "popup.html"
+    },
+    "description": "Main indices and analysis of the performance of current tab page",
+    "homepage_url": "https://www.menusifu.com",
+    "icons":
+    {
+        "128": "images/icon128.png",
+        "16": "images/icon16.png",
+        "19": "images/icon19.png",
+        "38": "images/icon38.png",
+        "48": "images/icon48.png",
+        "58": "images/icon58.png"
+    },
+    "manifest_version": 2,
+    "name": "Web Performance",
+    "content_scripts": [
+    {
+        "matches": ["<all_urls>"],
+        "js": ["js/content-script.js"],
+        "run_at": "document_start"
+    }],
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "version": "1.0.0"
+}

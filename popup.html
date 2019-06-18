@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>popup页</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+    body{
+		font-family: 'Microsoft Yahei';
+		min-width: 480px;
+		min-height: 60px;
+		font-size: 16px;
+	}
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.loadingTip{
+		text-align: center;
+		line-height: 60px;
+		font-size: 18px;
+	}
+	.score{
+		line-height: 30px;
+		margin-top: 5px;
+		text-align: right;
+		padding-right: 15px;
+		margin-bottom: 20px;
+		font-size: 20px;
+		font-family: -webkit-pictograph;
+	}
+	.performace{
+		width: 520px;
+		padding: 10px;
+	}
+	.totalItems{
+		display: flex;
+		justify-content:space-around;
+	}
+	.totalItems .item{
+		width: 120px;
+		height: 86px;
+		border-radius: 8px;
+		text-align: center;
+		cursor: pointer;
+		transition: all 0.25s;
+		padding-top: 10px;
+		cursor: pointer;
+	}
+	.totalItems .item:hover{
+		color: #16ca91;
+		box-shadow:  0 0 8px #1ba77b;
+	}
+	.totalItems .item p{
+		line-height: 35px;
+		font-size: 15px;
+		border-bottom: 1px solid #ccc;
+	}
+	.totalItems .item h3{
+		line-height: 40px;
+	}
+	.totalItems .item:hover p,.totalItems .item.active p{
+		border-bottom: 1px solid #16ca91;
+	}
+	.item.active{
+		color:#16ca91;
+	}
+	.chart{
+		width: 500px;
+		height: 360px;
+		display: none;
+	}
+
+	</style>
+</head>
+
+<body>
+    <div class="loadingTip" id="loadingTip" style="display: none;">The page is loading, please wait...</div>
+    <div class="performace" id="performance">
+        <div class="score">
+            <p><img src="./images/icon16.png" /> Performance Score: <span id="score">0</span></p>
+        </div>
+        <div class="totalItems">
+        	<div class="item active" id="item1">
+                <p>Load Time</p>
+                <h3><span id="loadTime">0</span> s</h3>
+            </div>
+            <div class="item" id="item2">
+                <p>All Requests</p>
+                <h3><span id="allRequestNum">0</span></h3>
+            </div>
+            <div class="item" id="item3">
+                <p>Used Memory</p>
+                <h3><span id="usedMemory">0</span> Mb</h3>
+            </div>
+        </div>
+        <div class="chart" id="chart1" style="display: block;"></div>
+        <div class="chart" id="chart2"></div>
+        <div class="chart" id="chart3"></div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+</body>
+
+</html>
