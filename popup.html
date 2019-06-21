@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
-    body{
+        body{
 		font-family: 'Microsoft Yahei';
 		min-width: 480px;
 		min-height: 60px;
@@ -40,7 +40,7 @@
 		justify-content:space-around;
 	}
 	.totalItems .item{
-		width: 120px;
+		width: 130px;
 		height: 86px;
 		border-radius: 8px;
 		text-align: center;
@@ -66,13 +66,60 @@
 	}
 	.item.active{
 		color:#16ca91;
+		box-shadow:  0 1px 2px #ccc;
 	}
 	.chart{
 		width: 500px;
 		height: 360px;
 		display: none;
 	}
-
+	#tip{
+		display: inline-block;
+    	float: left;
+    	width: 20px;
+    	height: 20px;
+    	line-height: 19px;
+    	border-radius: 12px;
+    	font-size: 14px;
+    	border: 1px solid #666;
+    	text-align: center;
+    	font-weight: bold;
+    	margin: 5px 0 0 15px;
+    	cursor: pointer;
+	}
+	#tip:hover{
+		background: #16ca91;
+		color: #fff;
+		border: 1px solid #16ca91;
+	}
+	.tipContent{
+		width: 320px;
+		border-radius: 8px;
+		box-shadow: 0 0 10px #999;
+		position: absolute;
+		top: 12px;
+		left: 50px;
+		background: #fff;
+		padding: 6px 8px;
+		font-size: 14px;
+		display: none;
+	}
+	.moreTime{
+		height: 40px;
+		padding-top: 10px;
+		line-height: 30px;
+		display: flex;
+		justify-content:space-around;
+		font-size: 13px;
+		color: #3d3f44;
+	}
+	.moreTime span{
+		color: #3398DB;
+	}
+	#score{
+		font-size: 24px;
+		margin-right: 5px;
+	}
 	</style>
 </head>
 
@@ -80,10 +127,13 @@
     <div class="loadingTip" id="loadingTip" style="display: none;">The page is loading, please wait...</div>
     <div class="performace" id="performance">
         <div class="score">
-            <p><img src="./images/icon16.png" /> Performance Score: <span id="score">0</span></p>
+            <p>
+                <i id="tip">i</i>
+                <img src="./images/icon16.png" /> Performance Score: <span id="score">0</span>
+            </p>
         </div>
         <div class="totalItems">
-        	<div class="item active" id="item1">
+            <div class="item active" id="item1">
                 <p>Load Time</p>
                 <h3><span id="loadTime">0</span> s</h3>
             </div>
@@ -96,9 +146,17 @@
                 <h3><span id="usedMemory">0</span> Mb</h3>
             </div>
         </div>
-        <div class="chart" id="chart1" style="display: block;"></div>
+        <div class="chart" id="chart1" style="display: block;height: 320px;"></div>
         <div class="chart" id="chart2"></div>
         <div class="chart" id="chart3"></div>
+        <div class="moreTime" id="moreTime">
+			<div class="moreTimeItem">DNS&TCP: <span id="tcp">00μs</span></div>
+			<div class="moreTimeItem">DOM Parsing: <span id="dom">00μs</span></div>
+			<div class="moreTimeItem">White Screen: <span id="white">00μs</span></div>
+        </div>
+        <div class="tipContent" id="tipContent">
+        	To get accurate test result, please clear cache before load the page.
+        </div>
     </div>
     <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
